@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout CSS Grid e Flexbox</title>
+
+    <style>
+
+        /* Stile generale della pagina */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Contenitore principale con CSS Grid */
+        .container {
+            display: grid;
+
+            /* Definizione delle aree */
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+
+            /* Colonne */
+            grid-template-columns: 250px 1fr;
+
+            /* Righe */
+            grid-template-rows: 100px 1fr 80px;
+
+            gap: 10px;
+
+            height: 100vh;
+            padding: 10px;
+        }
+
+        /* HEADER */
+        header {
+            grid-area: header;
+
+            background-color: darkblue;
+            color: white;
+
+            /* Flexbox */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 2rem;
+        }
+
+        /* SIDEBAR */
+        aside {
+            grid-area: sidebar;
+
+            background-color: lightgray;
+            padding: 20px;
+
+            width: 90%;
+        }
+
+        /* CONTENUTO PRINCIPALE */
+        main {
+            grid-area: main;
+
+            background-color: white;
+            padding: 20px;
+
+            position: relative;
+        }
+
+        /* FOOTER */
+        footer {
+            grid-area: footer;
+
+            background-color: black;
+            color: white;
+
+            /* Flexbox */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Box posizionato con absolute */
+        .badge {
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            background-color: red;
+            color: white;
+
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Bottone */
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Hover */
+        button:hover {
+            background-color: darkblue;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Contenitore principale -->
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            Il mio sito web
+        </header>
+
+        <!-- Sidebar -->
+        <aside>
+            <h2>Menu</h2>
+
+            <ul>
+                <li>Home</li>
+                <li>Servizi</li>
+                <li>Contatti</li>
+            </ul>
+        </aside>
+
+        <!-- Contenuto principale -->
+        <main>
+
+            <!-- Elemento con position absolute -->
+            <div class="badge">
+                NEW
+            </div>
+
+            <h2>Contenuto principale</h2>
+
+            <p>
+                Questa sezione utilizza CSS Grid per il layout generale,
+                Flexbox per gli allineamenti e position absolute
+                per posizionare il badge rosso.
+            </p>
+
+            <button>
+                Clicca qui
+            </button>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            Footer del sito
+        </footer>
+
+    </div>
+
+</body>
+</html>
