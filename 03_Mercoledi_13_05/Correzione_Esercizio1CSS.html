@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio CSS</title>
+
+    <style>
+        /* Selettore per tag: modifica tutti i body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Selettore per tag: modifica tutti gli h1 */
+        h1 {
+            color: darkblue;
+            font-size: 32px;
+        }
+
+        /* Selettore per classe */
+        .testo {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        /* Selettore per ID */
+        #contenitore {
+            background-color: white;
+            width: 80%;
+            padding: 20px;
+            margin: 30px auto;
+            border: 2px solid darkblue;
+        }
+
+        /* Regola generica: meno specifica */
+        p {
+            color: green;
+        }
+
+        /* Regola più specifica: vince sulla precedente */
+        .testo {
+            color: black;
+        }
+
+        /* Elemento interattivo con pseudo-classe */
+        button {
+            padding: 10px 20px;
+            border: 1px solid black;
+            background-color: lightblue;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Quando il mouse passa sopra il bottone */
+        button:hover {
+            background-color: darkblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="contenitore">
+        <h1>La mia prima pagina con CSS</h1>
+
+        <p class="testo">
+            Questo è un paragrafo di esempio. Il testo usa una classe CSS,
+            ha un colore modificato e una dimensione espressa in em.
+        </p>
+
+        <p>
+            Questo secondo paragrafo serve per vedere il comportamento della cascata CSS.
+        </p>
+
+        <button>Passa sopra con il mouse</button>
+    </div>
+
+</body>
+</html>
