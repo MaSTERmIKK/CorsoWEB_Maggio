@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback e Promise</title>
+</head>
+<body>
+
+    <h1>Callback e Promise in JavaScript</h1>
+
+    <button id="btnCallback">
+        Esegui Callback
+    </button>
+
+    <button id="btnPromise">
+        Esegui Promise
+    </button>
+
+    <button id="btnAsync">
+        Esegui Async Await
+    </button>
+
+    <p id="output"></p>
+
+    <script>
+
+        // =====================================
+        // SELEZIONE ELEMENTI
+        // =====================================
+
+        let output = document.getElementById("output");
+
+        let btnCallback = document.getElementById("btnCallback");
+
+        let btnPromise = document.getElementById("btnPromise");
+
+        let btnAsync = document.getElementById("btnAsync");
+
+
+
+        // =====================================
+        // CALLBACK
+        // =====================================
+
+        // Funzione principale
+        function eseguiOperazione(callback) {
+
+            output.innerHTML = "Operazione callback eseguita";
+
+
+
+            // Eseguo la callback
+            callback();
+
+        }
+
+
+
+        // Evento bottone callback
+        btnCallback.addEventListener("click", function () {
+
+            // Passo una funzione come callback
+            eseguiOperazione(function () {
+
+                console.log("Callback completata");
+
+            });
+
+        });
+
+
+
+
+        // =====================================
+        // PROMISE
+        // =====================================
+
+        // Creo una Promise
+        function promessa() {
+
+            return new Promise(function (resolve, reject) {
+
+                let successo = true;
+
+
+
+                // Simulo controllo
+                if (successo) {
+
+                    resolve("Promise completata");
+
+                } else {
+
+                    reject("Errore Promise");
+
+                }
+
+            });
+
+        }
+
+
+
+        // Evento bottone Promise
+        btnPromise.addEventListener("click", function () {
+
+            promessa()
+
+                .then(function (messaggio) {
+
+                    output.innerHTML = messaggio;
+
+                })
+
+                .catch(function (errore) {
+
+                    output.innerHTML = errore;
+
+                });
+
+        });
+
+
+
+
+        // =====================================
+        // ASYNC / AWAIT
+        // =====================================
+
+        // Funzione asincrona
+        async function esempioAsync() {
+
+            try {
+
+                // Aspetto la Promise
+                let risultato = await promessa();
+
+                output.innerHTML = risultato + " con async/await";
+
+            } catch (errore) {
+
+                output.innerHTML = errore;
+
+            }
+
+        }
+
+
+
+        // Evento bottone async
+        btnAsync.addEventListener("click", function () {
+
+            esempioAsync();
+
+        });
+
+
+
+
+        // =====================================
+        // ALTRI ESEMPI CALLBACK
+        // =====================================
+
+        // setTimeout usa una callback
+        setTimeout(function () {
+
+            console.log("Messaggio dopo 2 secondi");
+
+        }, 2000);
+
+
+
+
+        // =====================================
+        // CALLBACK SU ARRAY
+        // =====================================
+
+        let numeri = [1, 2, 3];
+
+
+
+        // forEach usa una callback
+        numeri.forEach(function (numero) {
+
+            console.log(numero);
+
+        });
+
+    </script>
+
+</body>
+</html>
