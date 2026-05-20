@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipolazione CSS con JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titolo">Manipolazione CSS</h1>
+
+    <p id="testo">Questo testo cambierà stile con JavaScript.</p>
+
+    <div id="box">BOX</div>
+
+    <button id="btnColore">Cambia colore testo</button>
+    <button id="btnSfondo">Cambia sfondo</button>
+    <button id="btnGrandezza">Aumenta testo</button>
+    <button id="btnBordo">Cambia bordo</button>
+    <button id="btnRotazione">Ruota box</button>
+    <button id="btnNascondi">Nascondi / mostra</button>
+    <button id="btnReset">Reset</button>
+
+    <script>
+        // Seleziono gli elementi HTML
+        let titolo = document.getElementById("titolo");
+        let testo = document.getElementById("testo");
+        let box = document.getElementById("box");
+
+        let btnColore = document.getElementById("btnColore");
+        let btnSfondo = document.getElementById("btnSfondo");
+        let btnGrandezza = document.getElementById("btnGrandezza");
+        let btnBordo = document.getElementById("btnBordo");
+        let btnRotazione = document.getElementById("btnRotazione");
+        let btnNascondi = document.getElementById("btnNascondi");
+        let btnReset = document.getElementById("btnReset");
+
+
+
+        // Cambio colore del testo
+        btnColore.addEventListener("click", function () {
+            testo.style.color = "red";
+        });
+
+
+
+        // Cambio colore di sfondo del box
+        btnSfondo.addEventListener("click", function () {
+            box.style.backgroundColor = "yellow";
+        });
+
+
+
+        // Aumento dimensione del testo
+        btnGrandezza.addEventListener("click", function () {
+            testo.style.fontSize = "30px";
+        });
+
+
+
+        // Cambio il bordo del box
+        btnBordo.addEventListener("click", function () {
+            box.style.border = "5px dashed green";
+        });
+
+
+
+        // Ruoto il box
+        btnRotazione.addEventListener("click", function () {
+            box.style.transform = "rotate(20deg)";
+        });
+
+
+
+        // Nascondo o mostro il box
+        btnNascondi.addEventListener("click", function () {
+
+            if (box.style.display === "none") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+
+        });
+
+
+
+        // Cambio stile quando passo sopra il titolo
+        titolo.addEventListener("mouseover", function () {
+            titolo.style.color = "blue";
+            titolo.style.fontSize = "40px";
+        });
+
+
+
+        // Cambio stile quando esco dal titolo
+        titolo.addEventListener("mouseout", function () {
+            titolo.style.color = "black";
+            titolo.style.fontSize = "32px";
+        });
+
+
+
+        // Reset degli stili principali
+        btnReset.addEventListener("click", function () {
+            testo.style.color = "black";
+            testo.style.fontSize = "16px";
+
+            box.style.display = "block";
+            box.style.backgroundColor = "lightblue";
+            box.style.border = "2px solid black";
+            box.style.transform = "rotate(0deg)";
+
+            titolo.style.color = "black";
+            titolo.style.fontSize = "32px";
+        });
+    </script>
+
+</body>
+</html>
