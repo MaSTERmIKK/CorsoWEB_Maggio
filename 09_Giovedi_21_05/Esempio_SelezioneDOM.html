@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Selezione elementi DOM</title>
+</head>
+<body>
+
+    <h1 id="titolo">Titolo principale</h1>
+
+    <p class="testo">Primo paragrafo</p>
+    <p class="testo">Secondo paragrafo</p>
+
+    <div>
+        <span>Elemento span dentro un div</span>
+    </div>
+
+    <ul id="lista">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+
+    <button id="bottone">Esegui selezioni</button>
+
+    <script>
+        // Seleziono un elemento tramite ID
+        let titolo = document.getElementById("titolo");
+
+        // Seleziono tutti gli elementi con una certa classe
+        let paragrafi = document.getElementsByClassName("testo");
+
+        // Seleziono tutti gli elementi con un certo tag
+        let elementiLista = document.getElementsByTagName("li");
+
+        // Seleziono il primo elemento che corrisponde al selettore CSS
+        let primoParagrafo = document.querySelector(".testo");
+
+        // Seleziono tutti gli elementi che corrispondono al selettore CSS
+        let tuttiParagrafi = document.querySelectorAll(".testo");
+
+        // Seleziono il bottone
+        let bottone = document.getElementById("bottone");
+
+        bottone.addEventListener("click", function () {
+
+            // Modifico elemento selezionato con ID
+            titolo.innerHTML = "Titolo modificato";
+
+            // Modifico il primo elemento trovato con querySelector
+            primoParagrafo.innerHTML = "Primo paragrafo modificato";
+
+            // Modifico tutti gli elementi con classe usando un ciclo
+            for (let i = 0; i < paragrafi.length; i++) {
+                paragrafi[i].style.color = "red";
+            }
+
+            // Modifico tutti gli elementi li
+            for (let i = 0; i < elementiLista.length; i++) {
+                elementiLista[i].innerHTML = "Elemento lista modificato";
+            }
+
+            // Modifico tutti gli elementi trovati con querySelectorAll
+            for (let i = 0; i < tuttiParagrafi.length; i++) {
+                tuttiParagrafi[i].style.fontSize = "25px";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
